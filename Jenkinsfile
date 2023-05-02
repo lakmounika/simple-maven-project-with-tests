@@ -4,11 +4,12 @@
           maven "M3"
       }
 
-    checkout scm
+
 
     stages {
             stage('Build') {
                 steps {
+                checkout scm
                     // Get some code from a GitHub repository
                     git 'https://github.com/jglick/simple-maven-project-with-tests.git'
 
