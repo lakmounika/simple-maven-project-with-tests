@@ -1,15 +1,15 @@
-pipeline{
+pipeline {
+    agent any
 
-node(any) {
-  tools {
-          // Install the Maven version configured as "M3" and add it to the path.
-          maven "M3"
-      }
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M2"
+    }
 
-  stages {
+    stages {
             stage('Build') {
                 steps {
-                    checkout scm
+                checkout scm
                     // Get some code from a GitHub repository
                     git 'https://github.com/jglick/simple-maven-project-with-tests.git'
 
@@ -30,7 +30,4 @@ node(any) {
                 }
             }
         }
-  }
-
-}
-
+    }
